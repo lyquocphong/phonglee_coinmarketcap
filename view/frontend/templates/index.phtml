@@ -1,0 +1,15 @@
+<h2>Welcome to my coinlist. This just basic template</h2>
+
+<button type="button" id="refreshBtn" name="refreshBtn" class="btn btn-primary">Refresh list</button>
+
+<div id="listSection" name="listSection">
+    <?php
+        echo $block->renderPriceList();
+    ?>
+</div>
+
+<script type="text/javascript">
+    requirejs(['jquery', 'PHONGLEE_CoinMarketCap/js/test'], function($, test) {
+        console.log("Test JS has been loaded");
+    }); 
+</script>

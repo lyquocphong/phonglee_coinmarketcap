@@ -1,0 +1,36 @@
+<?php
+  // Work only with block is PHONGLEE\CoinMarketCap\Block\Index
+  if(is_a($block,'PHONGLEE\CoinMarketCap\Block\Index') == false)
+  {
+    return;
+  }
+
+  $list_data = $block->getListData();
+?>
+
+<h2>Price list at <?php echo date('l jS \of F Y h:i:s A'); ?></h2>
+
+<table id="priceList" name="priceList" class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Symbol</th>
+      <th scope="col">Price In Usd</th>
+      <th scope="col">MarketCap</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach($list_data as $key => $val): ?>
+    <tr>        
+        <th scope="row"><?php echo $val['rank']; ?></th>
+        <td> 
+            <?php echo $val['name']; ?>        
+        </td>
+        <td><?php echo $val['symbol']; ?></td>
+        <td><?php echo $val['price_usd']; ?></td>
+        <td><?php echo $val['market_cap_usd']; ?></td>
+    </tr>
+    <?php endforeach; ?>    
+  </tbody>
+</table>
